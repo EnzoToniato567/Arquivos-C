@@ -1,0 +1,87 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, ""); 
+
+    int opcao, quantidade;
+    float total = 0;
+    char continuar;
+
+    do {
+        printf("Bem-vindo ao nosso menu:\n");
+        
+        // Menu de Compras
+        for (int i = 1; i <= 5; i++) {
+        if (i == 1) printf("%d- Teclado R$ 100.00\n", i);
+        else if (i == 2) printf("%d- Mouse R$ 50.00\n", i);
+        else if (i == 3) printf("%d- Monitor R$ 800.00\n", i);
+        else if (i == 4) printf("%d- Placa de Vídeo R$ 2000.00\n", i);
+        else if (i == 5) printf("%d- Sair do menu\n", i);
+        }
+
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+        case 1:
+        printf("Você escolheu Teclado.\n");
+        printf("Quantos teclados deseja comprar?:\n");
+        scanf("%d", &quantidade);
+        total += 100.00 * quantidade;
+        printf("Produto adicionado ao carrinho. Total atual: R$%.2f\n", total);
+        break;
+
+        case 2:
+        printf("Você escolheu Mouse.\n");
+        printf("Quantos mouses deseja comprar?:\n");
+        scanf("%d", &quantidade);
+        total += 50.00 * quantidade;
+        printf("Produto adicionado ao carrinho. Total atual: R$%.2f\n", total);
+        break;
+
+        case 3:
+        printf("Você escolheu Monitor.\n");
+        printf("Quantos monitores deseja comprar?:\n");
+        scanf("%d", &quantidade);
+        total += 800.00 * quantidade;
+        printf("Produto adicionado ao carrinho. Total atual: R$%.2f\n", total);
+        break;
+
+        case 4:
+        printf("Você escolheu Placa de Vídeo.\n");
+        printf("Quantas placas de vídeo deseja comprar?:\n");
+        scanf("%d", &quantidade);
+        total += 2000.00 * quantidade;
+        printf("Produto adicionado ao carrinho. Total atual: R$%.2f\n", total);
+        break;
+
+        case 5:
+        printf("Finalizando sua compra...\n");
+        printf("O valor total da compra é de: R$%.2f\n", total);
+        printf("Obrigado por utilizar nosso menu <3\n");
+        return 0;
+
+        default:
+        printf("Opção inválida. Escolha novamente!\n");
+        break;
+        }
+
+        printf("Deseja retornar ao menu? (S/s para SIM e N/n para NÃO):\n");
+        scanf(" %c", &continuar);
+
+        while (continuar != 'S' && continuar != 's' && continuar != 'N' && continuar != 'n') {
+            printf("Entrada inválida! Escolha 'S' para SIM ou 'N' para NÃO: ");
+            scanf(" %c", &continuar);
+        }
+
+    } while (continuar == 'S' || continuar == 's');
+
+    printf("Final da compra: R$%.2f\n", total);
+    printf("Até a próxima 0_o\n");
+
+    return 0;
+}
+

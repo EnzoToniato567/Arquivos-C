@@ -1,0 +1,44 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+
+    setlocale(LC_ALL, "");
+
+    float num1, num2, resultado;
+    char operador; 
+
+    printf("Insira dois números:\n");
+    scanf("%f %f", &num1, &num2);
+
+    printf("Digite o operador (+, -, *, /):\n");
+    scanf(" %c", &operador); 
+
+    if (operador == '+') {
+        resultado = num1 + num2;
+        printf("O resultado da adição é: %.2f\n", resultado);
+    }
+    else if (operador == '/') {
+        if (num2 != 0) { // Eu adicionei o conceito de erro ao dividir por 0
+            resultado = num1 / num2;
+            printf("O resultado da divisão é: %.2f\n", resultado);
+        } else {
+            printf("A operação não é divisível por 0.\n");
+        }
+    }
+    else if (operador == '-') {
+        resultado = num1 - num2;
+        printf("O resultado da subtração é: %.2f\n", resultado);
+    }
+    else if (operador == '*') {
+        resultado = num1 * num2;
+        printf("O resultado da multiplicação é: %.2f\n", resultado);
+    }
+    else {
+        printf("A operação é inválida.\n");
+    }
+
+    return 0;
+}

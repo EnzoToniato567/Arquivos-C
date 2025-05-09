@@ -1,0 +1,98 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "");
+    
+    int mes, dia, ano, bissexto;
+
+    printf("Digite o número do mês (1-12):\n");
+    scanf("%d", &mes);
+
+    if (mes < 1 || mes > 12) {
+        printf("Mês inválido:\n");
+        return 0;
+    }
+
+    printf("insira o número do dia:\n");
+    scanf("%d", &dia);
+
+    printf("Insira o ano:\n");
+    scanf("%d", &ano);
+
+    bissexto = (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0); //os cases simbolizam o número dos meses
+
+       switch (mes) { 
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            if (dia < 1 || dia > 31) {
+                printf("Dia inválido para este mês:\n");
+                return 0;
+            }
+            break;
+        case 4: case 6: case 9: case 11:
+            if (dia < 1 || dia > 30) {
+                printf("Dia inválido para este mês:\n");
+                return 0;
+            }
+            break;
+        case 2:
+            if (bissexto && (dia < 1 || dia > 29)) {
+                printf("Dia inválido para fevereiro em ano bissexto:\n");
+                return 0;
+            } else if (!bissexto && (dia < 1 || dia > 28)) {
+                printf("Dia inválido para fevereiro em anos não bissextos:\n");
+                return 0;
+            }
+            break;
+        default:
+            printf("Mês inválido:\n");
+            return 0;
+    }
+
+        switch (mes) { 
+        case 12:
+            if (dia >= 21) {
+                printf("É verão:\n");
+            } else {
+                printf("É primavera:\n");
+            }
+            break;
+        case 1: case 2:
+            printf("É verão:\n");
+            break;
+        case 3:
+            if (dia >= 20) {
+                printf("É outono:\n");
+            } else {
+                printf("É verão:\n");
+            }
+            break;
+        case 4: case 5:
+            printf("É outono:\n");
+            break;
+        case 6:
+            if (dia >= 21) {
+                printf("É inverno:\n");
+            } else {
+                printf("É outono:\n");
+            }
+            break;
+        case 7: case 8:
+            printf("É inverno:\n");
+            break;
+        case 9:
+            if (dia >= 23) {
+                printf("É primavera:\n");
+            } else {
+                printf("É inverno:\n");
+            }
+            break;
+        case 10: case 11:
+            printf("É primavera:\n");
+            break;
+    }
+
+    return 0;
+}

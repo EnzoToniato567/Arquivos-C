@@ -1,0 +1,42 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+int main() {
+    setlocale(LC_ALL, ""); 
+    int opcao, numero, contador = 1;
+
+    do {
+        // Exibir o menu
+        printf("\nMenu\n");
+        printf("1 - Digitar um número para ver a tabuada\n");
+        printf("0 - Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1: {
+                printf("Digite um número: ");
+                scanf("%d", &numero);
+                printf("A tabuada é de %d:\n", numero);
+                contador = 1; 
+                printf("%d x %d = %d\n", numero, contador, numero * contador);
+                contador++; 
+                }
+                break;
+            }
+            case 0:
+                printf("Progama encerrado.Volte sempre!:\n");
+                break;
+
+            default:
+                printf("Opção inválida.:\n");
+        }
+        
+    
+        } while (opcao != 0);
+
+    return 0;
+}

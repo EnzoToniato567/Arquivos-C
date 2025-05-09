@@ -1,0 +1,21 @@
+//biblioteca 
+
+#include <stdio.h>
+#include <locale.h>
+
+
+int main() {
+
+    setlocale(LC_ALL, ""); 
+ 
+    int num[6], soma;
+    
+    printf ("Insira os seis números:\n");
+    scanf ("%d %d %d %d %d %d", &num[0], &num[1], &num[2], &num[3], &num[4], &num[5]);
+    
+    soma = num[0] + num[1] + num[2] + num[3] + num[4] + num[5];
+    
+    printf ("O resultado da operação é: %d\n", soma);
+    
+    return 0;
+}

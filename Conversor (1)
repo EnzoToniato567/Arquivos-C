@@ -1,0 +1,44 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+
+    setlocale(LC_ALL, "");
+
+    float valorReais, valorConvertido;
+    int opcao;
+
+    printf("Digite o valor em reais:\n");
+    scanf("%f", &valorReais);
+
+    printf("Escolha a moeda para conversão:\n");
+    printf("1- Dólar\n");
+    printf("2- Euro\n");
+    printf("3- Libra\n");
+    scanf("%d", &opcao);
+    
+    switch (opcao) {
+        case 1:
+            printf("Você escolheu Dólar:\n");
+            valorConvertido = valorReais / 5.84;
+            printf("O valor convertido é: %.2f\n", valorConvertido);
+            break;
+        case 2:
+            printf("Você escolheu Euro:\n");
+            valorConvertido = valorReais / 6.37;
+            printf("O valor convertido é: %.2f\n", valorConvertido);
+            break;
+        case 3:
+            printf("Você escolheu Libra:\n");
+            valorConvertido = valorReais / 7.54;
+            printf("O valor convertido é: %.2f\n", valorConvertido);
+            break;
+        default:
+            printf("Opção inválida! Programa finalizado.\n");
+            break;
+    }
+
+    return 0;
+}

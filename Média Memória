@@ -1,0 +1,31 @@
+//biblioteca 
+
+#include <stdio.h>
+#include <locale.h>
+
+
+int main() {
+
+    setlocale(LC_ALL, ""); 
+ 
+    int nota[4], média;
+    
+    printf ("Digite a primeira nota:\n");
+    scanf ("%d", nota[0]);
+    
+    printf ("Digite a segunda nota:\n");
+    scanf ("%d", nota[1]);
+    
+    printf ("Digite a terceira nota:\n");
+    scanf ("%d", nota[2]);
+    
+    printf ("Digite a quarta nota:\n");
+    scanf ("%d", nota[3]);
+    
+    média = (nota[0] + nota[1] + nota[2] + nota[3]) / 4;
+    
+    printf ("A média das notas é:%d\n", média);
+    
+    return 0;
+    
+}

@@ -1,0 +1,28 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "");
+
+    int num[8], i, pares = 0, impares = 0;
+
+    printf ("Insira todos os oito números:\n");
+    scanf ("%d %d %d %d %d %d %d %d", &num[0], &num[1], &num[2], &num[3], &num[4], &num[5],
+    &num[6], &num[7]);
+    
+    for (i = 0; i < 8; i++) {
+
+        if (num[i] % 2 == 0) {
+            pares++;
+        } else {
+            impares++;
+        }
+    }
+
+    printf("Os números pares são: %d\n", pares);
+    printf("Os números ímpares são: %d\n", impares);
+
+    return 0;
+}

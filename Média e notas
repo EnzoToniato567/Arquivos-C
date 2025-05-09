@@ -1,0 +1,31 @@
+//biblioteca 
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "");
+
+    float nota[6], media = 0;
+    int i;
+
+    printf("Insira as 6 notas do aluno:\n");
+    for (i = 0; i < 6; i++) {
+        printf("Nota %d: ", i + 1);
+        scanf("%f", &nota[i]);
+        
+    }
+    
+    media = (nota[0] + nota[1] + nota[2] + nota[3] + nota[4] + nota[5]) / 6;
+
+    printf("Média do aluno: %.2f\n", media);
+
+    printf("Notas acima da média:\n");
+    for (i = 0; i < 6; i++) {
+        if (nota[i] > media) {
+            printf("%.2f ", nota[i]);
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,40 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "");
+
+    int numero[3], i, pares = 0;
+    int opcao;
+
+    printf("Menu de números pares:\n");
+    printf("1- Apenas um número par.\n");
+    printf("2- Apenas dois números pares.\n");
+    printf("3- Três números pares.\n");
+    printf("Escolha uma opção:\n");
+    scanf("%d", &opcao);
+
+    if (opcao < 1 || opcao > 3) {
+        printf("Opção inválida! Escolha entre 1, 2 ou 3.\n");
+        return 1;
+    }
+
+    for (i = 0; i < 3; i++) {
+        printf("Digite o número %d:\n", i + 1);
+        scanf("%d", &numero[i]);
+
+        if (numero[i] % 2 == 0) {
+            pares++;
+        }
+    }
+
+    if (pares == opcao) {
+        printf("Correto! Você escolheu e digitou %d números pares.\n", pares);
+    } else {
+        printf("Você escolheu %d números pares, mas digitou %d pares.\n", opcao, pares);
+    }
+
+    return 0;
+}

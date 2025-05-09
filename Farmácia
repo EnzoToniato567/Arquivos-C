@@ -1,0 +1,53 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, ""); 
+    
+    int opcao, quantidade;
+    float total = 0.0;
+
+    printf ("-------Bem vindo à nossa farmácia-------\n");
+    printf("Escolha um dos nosso produtos:\n");
+    printf("1 - Creme Dental - R$ 6,00\n");
+    printf("2 - Shampoo - R$ 15,00\n");
+    printf("3 - Sabonete - R$ 3,00 \n");
+    printf("4 - Protetor Solar - R$ 36,00\n");
+    printf("5 - Listerine - R$ 21,00\n");
+    printf("Digite o número da sua escolha:\n");
+    scanf("%d", &opcao);
+    printf("Digite a quantidade:\n");
+    scanf("%d", &quantidade);
+
+    switch (opcao) {
+        case 1:
+            total = 6.00 * quantidade;
+            printf("Você escolheu Creme Dental. O valor é de: R$ %.2f\n", total);
+            break;
+        case 2:
+            total = 15.00 * quantidade;
+            printf("Você escolheu Shampoo. O valor é de: R$ %.2f\n", total);
+            break;
+        case 3:
+            total = 3.00 * quantidade;
+            printf("Você escolheu Sabonete. O valor é de: R$ %.2f\n", total);
+            break; 
+        case 4:
+            total = 36.00 * quantidade;
+            printf("Você escolheu Protetor Solar. O valor é de: R$ %.2f\n", total);
+            break;
+        case 5:
+            total = 21.00 * quantidade;
+            printf("Você escolheu Listerine. O valor é de: R$ %.2f\n", total);
+            break;
+        default:
+            printf("Opção inválida.\n");
+            break;
+    }
+
+    return 0;
+}
+
+

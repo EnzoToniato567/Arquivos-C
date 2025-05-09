@@ -1,0 +1,81 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+
+    setlocale(LC_ALL, ""); 
+    
+    int opcao;   
+    
+    printf("Selecione o mês (1 a 12):\n");
+    printf("1- Janeiro\n");
+    printf("2- Fevereiro\n");
+    printf("3- Março\n");
+    printf("4- Abril\n");
+    printf("5- Maio\n");
+    printf("6- Junho\n");
+    printf("7- Julho\n");
+    printf("8- Agosto\n");
+    printf("9- Setembro\n");
+    printf("10- Outubro\n");
+    printf("11- Novembro\n");
+    printf("12- Dezembro\n");
+    scanf("%d", &opcao);
+    
+    switch (opcao) {
+        case 1:
+            printf("O mês é Janeiro.\n");
+            break; 
+        
+        case 2:
+            printf("O mês é Fevereiro.\n");
+            break; 
+        
+        case 3:
+            printf("O mês é Março.\n");
+            break; 
+        
+        case 4:
+            printf("O mês é Abril.\n");
+            break; 
+        
+        case 5:
+            printf("O mês é Maio.\n");
+            break; 
+      
+        case 6:
+            printf("O mês é Junho.\n");
+            break; 
+       
+        case 7:
+            printf("O mês é Julho.\n");
+            break; 
+        
+        case 8:
+            printf("O mês é Agosto.\n");
+            break;
+        
+        case 9:
+            printf("O mês é Setembro.\n");
+            break; 
+        
+        case 10:
+            printf("O mês é Outubro.\n");
+            break; 
+        
+        case 11:
+            printf("O mês é Novembro.\n");
+            break; 
+        
+        case 12:
+            printf("O mês é Dezembro.\n");
+            break; 
+        
+        default:
+            printf("Opção inválida! Programa finalizado.\n");
+    }
+    
+    return 0;
+}

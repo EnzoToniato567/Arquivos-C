@@ -1,0 +1,22 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+//Montagem de estrutura
+struct Pessoa {
+      char nome[50];
+      int idade;
+      float altura;   
+};
+
+int main() {
+    setlocale(LC_ALL, ""); 
+
+    struct Pessoa pessoa1 = {"Ana", 25, 1.70};
+    printf ("Nome: %s\n", pessoa1.nome);
+    printf ("Idade: %d\n", pessoa1.idade);
+    printf ("Altura: %.2f\n", pessoa1.altura);
+    
+    return 0;
+}

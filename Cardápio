@@ -1,0 +1,50 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, ""); 
+    
+    int opcao, quantidade;
+    float total = 0.0;
+
+    printf("Escolha sua refeição:\n");
+    printf("1 - X-Burguer - R$ 10,00\n");
+    printf("2 - X-Salada - R$ 12,00\n");
+    printf("3 - X-Bacon - R$ 15,00\n");
+    printf("4 - Hot Dog - R$ 8,00\n");
+    printf("5 - Refrigerante - R$ 5,00\n");
+    printf("Digite o número da sua escolha:\n");
+    scanf("%d", &opcao);
+    printf("Digite a quantidade:\n");
+    scanf("%d", &quantidade);
+
+    switch (opcao) {
+        case 1:
+            total = 10.00 * quantidade;
+            printf("Você escolheu x burguer. O valor é de:R$ %.2f\n", total);
+            break;
+        case 2:
+            total = 12.00 * quantidade;
+            printf("Você escolheu x salada. O valor é de:R$ %.2f\n", total);
+            break;
+        case 3:
+            total = 15.00 * quantidade;
+            printf("Você escolheu x bacon. O valor é de: R$ %.2f", total);
+        case 4:
+            total = 8.00 * quantidade;
+            printf("Você escolheu Hot Dog. O valor é de:R$ %.2f\n", total);
+            break;
+        case 5:
+            total = 5.00 * quantidade;
+            printf("Você escolheu Refrigerante. O vaor é de:R$ %.2f\n", total);
+            break;
+        default:
+            printf("Opção inválida:\n");
+            break;
+    }
+
+    return 0;
+}
+

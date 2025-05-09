@@ -1,0 +1,53 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, ""); 
+    
+    int opção;
+    float nota;
+    printf("Menu de matérias:\n");
+    printf("1 - Insira a nota de português:\n");
+    printf("2 - Insira a nota de ciências:\n");
+    printf("3 - Insira a nota de geografia:\n");
+    printf("4 - Insira a nota de matemática:\n");
+    printf("0 - Nenhuma (sair):\n");
+    printf("Escolher opção:\n");
+    scanf("%d", &opção);
+    
+    if (opção == 1) {
+        printf("Insira a nota de português:\n");
+        scanf("%f", &nota);
+        printf("Valor da nota: %.2f\n", nota);
+    
+        
+    } else if (opção == 2) {
+        printf("Insira a nota de ciências:\n");
+        scanf("%f", &nota);
+        printf("Valor da nota: %.2f\n", nota);
+    
+        
+    } else if (opção == 3) {
+        printf("Insira a nota de geografia:\n");
+        scanf("%f", &nota);
+        printf("Valor da nota: %.2f\n", nota);
+    
+        
+    } else if (opção == 4) {
+        printf("Insira a nota de matemática:\n");
+        scanf("%f", &nota);
+        printf("Nota reg: %.2f\n", nota);
+   
+    } else if (opção == 0) {
+        printf("Sair do menu:\n");
+    
+        
+    } else {
+        printf("Opção inválida: \n");
+    
+    }
+    
+    return 0;
+}
