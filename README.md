@@ -1,7 +1,2 @@
-# Meus arquivos em C
-
-
-<div aling = "center">
-## Enzo Toniato
-
-</div>
+# Bem-vindo ao meu perfil!
+![Minhas estatísticas](https://github-readme-stats.vercel.app/api?username=EnzoToniato567)
