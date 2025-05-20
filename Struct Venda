@@ -1,0 +1,125 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+typedef struct {
+    char produto[30];
+    float valor;
+    int quantidade;
+} Venda;
+
+int num_vendas = 0;
+Venda vendas[10];
+
+void clear();
+void cadastrar_venda();
+void calcular_faturamento();
+void media_quantidadeVendida();
+void listar_vendas();
+void finaliza_funcao();
+
+int main () {
+    setlocale(LC_ALL, "");
+    int opcao;
+
+    do {
+        clear();
+        printf ("----Mercadão SENAI----\n");
+        printf ("1- Registrar compra\n");
+        printf ("2- Relatório de vendas\n");
+        printf ("3- Calcular faturamento\n");
+        printf ("4- Média de quantidade vendida\n");
+        printf ("0- Sair\n");
+        printf ("Selecione uma opção:\n");
+        scanf ("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                cadastrar_venda();
+                break;
+            case 2:
+                listar_vendas();
+                break;
+            case 3:
+                calcular_faturamento();
+                finaliza_funcao();
+                break;
+            case 4:
+                media_quantidadeVendida();
+                finaliza_funcao();
+                break;
+            default:
+                if (opcao != 0) {
+                    printf ("Opção inválida\n");
+                    finaliza_funcao();
+                }
+        }
+    } while (opcao != 0);
+    clear();
+    printf ("Você saiu do menu\n");
+
+    return 0;
+}
+
+void clear() {
+    if (system("clear")) system("cls");
+}
+
+void finaliza_funcao() {
+    printf("Pressione ENTER para continuar...");
+    getchar();
+    getchar();
+}
+
+void cadastrar_venda() {
+    clear();
+    printf ("----Nova venda----\n");
+    printf ("PRODUTO:\n");
+    scanf ("%s", vendas[num_vendas].produto);
+    printf ("VALOR:\n");
+    scanf ("%f", &vendas[num_vendas].valor);
+    printf ("QUANTIDADE:\n");
+    scanf ("%d", &vendas[num_vendas].quantidade);
+    num_vendas++;
+    finaliza_funcao();
+}
+
+void listar_vendas() {
+    clear();
+    printf ("----Minhas vendas----\n");
+    if (num_vendas == 0) {
+        printf("Nenhuma venda registrada.\n");
+    }
+    for (int i = 0; i < num_vendas; i++) {
+        printf ("NÚMERO DA VENDA: %d\n", i++);
+        printf ("PRODUTO: %s\n", vendas[i].produto);
+        printf ("VALOR UNITÁRIO: R$ %.2f\n", vendas[i].valor);
+        printf ("QUANTIDADE: %d\n", vendas[i].quantidade);
+        printf ("----------------------\n");
+    }
+    finaliza_funcao();
+}
+
+void calcular_faturamento() {
+    clear();
+    float total = 0;
+    for (int i = 0; i < num_vendas; i++) {
+        total += vendas[i].valor * vendas[i].quantidade;
+    }
+    printf ("Faturamento total: R$ %.2f\n", total);
+}
+
+void media_quantidadeVendida() {
+    clear();
+    if (num_vendas == 0) {
+        printf("Nenhuma venda registrada para calcular média.\n");
+        return;
+    }
+    int soma = 0;
+    for (int i = 0; i < num_vendas; i++) {
+        soma += vendas[i].quantidade;
+    }
+    printf ("Média de quantidade: %.2f\n", (float) soma / num_vendas);
+}
