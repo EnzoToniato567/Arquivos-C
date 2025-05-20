@@ -96,7 +96,7 @@ float dividir(int v1, int v2) {
     if (v2 == 0) {
         return 0.0;
     }
-    return (float)v1 / v2;
+    return float (v1 / v2);
 }
 
 int multiplicar(int v1, int v2) {
