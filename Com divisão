@@ -1,0 +1,75 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int somar(int v1, int v2);
+void somar_sem_retorno(int v1, int v2);
+int subtrair(int v1, int v2);
+float dividir(int v1, int v2);
+
+int main() {
+    setlocale(LC_ALL, ""); // Ativa o suporte ao idioma local
+
+    int a, b, opcao;
+
+    printf("1 - Somar\n");
+    printf("2 - Subtrair\n");
+    printf("3 - Dividir\n");
+    printf("Informe a operação:\n");
+    scanf("%d", &opcao);
+
+    printf("Informe o primeiro valor:\n");
+    scanf("%d", &a);
+    printf("Informe o segundo valor:\n");
+    scanf("%d", &b);
+
+    switch (opcao) {
+        case 1:
+            printf("Resultado da soma: %d\n", somar(a, b));
+            break;
+        case 2:
+            printf("Resultado da subtração: %d\n", subtrair(a, b));
+            break;
+        case 3:
+            if (b == 0) {
+                printf("Erro: Divisão por zero!\n");
+            } else {
+                printf("Resultado da divisão: %.2f\n", dividir(a, b));
+            }
+            break;
+        default:
+            printf("Opção inválida.\n");
+            break;
+    }
+
+    int resultado = somar(a, b);
+    printf("SOMA = %d\n", resultado);
+    somar_sem_retorno(a, b);
+
+    return 0;
+}
+
+int somar(int v1, int v2) {
+    int res = v1 + v2;
+    return res;
+}
+
+void somar_sem_retorno(int v1, int v2) {
+    int res = v1 + v2;
+    printf("RESULTADO = %d\n", res);
+}
+
+int subtrair(int v1, int v2) {
+    int res = v1 - v2;
+    return res;
+}
+
+float dividir(int v1, int v2) {
+    // Garante que não haverá divisão por zero 
+    if (v2 == 0) {
+        return 0.0;
+    }
+    float res = (float)v1 / v2;
+    return res;
+}

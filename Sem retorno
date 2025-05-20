@@ -1,0 +1,27 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int somar (int v1, int v2); // tipo da função_nome da função (parâmetros)
+void somar_sem_retorno (int v1, int v2);
+
+int main () {
+
+    int resultado = somar(5, 6);
+
+    printf("SOMA = %d\n", resultado); 
+    somar_sem_retorno(7, 7);
+
+    return 0;
+}
+
+int somar (int v1, int v2) {
+    int res = v1 + v2;
+    return res;
+}
+
+void somar_sem_retorno (int v1, int v2) {
+    int res = v1 + v2;
+    printf("RESULTADO = %d\n", res);
+}

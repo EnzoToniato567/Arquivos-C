@@ -1,0 +1,112 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+int somar(int v1, int v2);
+void somar_sem_retorno(int v1, int v2);
+int subtrair(int v1, int v2);
+float dividir(int v1, int v2);
+int multiplicar(int v1, int v2);
+
+void multiplicar_sem_retorno(int v1, int v2);
+void media(int v1, int v2);
+
+int menu();
+
+int main() {
+    setlocale(LC_ALL, "");
+
+    int a, b, opcao;
+
+    do {
+        opcao = menu();
+
+        if (opcao == 0) {
+            printf("Você escolheu sair do menu.\n");
+            break;
+        }
+
+        printf("Informe o primeiro valor:\n");
+        scanf("%d", &a);
+        printf("Informe o segundo valor:\n");
+        scanf("%d", &b);
+
+        switch (opcao) {
+            case 1:
+                printf("Resultado da soma: %d\n", somar(a, b));
+                somar_sem_retorno(a, b);
+                break;
+            case 2:
+                printf("Resultado da subtração: %d\n", subtrair(a, b));
+                break;
+            case 3:
+                if (b == 0) {
+                    printf("Divisão por zero não é aceita\n");
+                } else {
+                    printf("Resultado da divisão: %.2f\n", dividir(a, b));
+                }
+                break;
+            case 4:
+                printf("Resultado da multiplicação: %d\n", multiplicar(a, b));
+                multiplicar_sem_retorno(a, b);
+                break;
+            case 5:
+                media(a, b);
+                break;
+            default:
+                printf("Opção inválida.\n");
+                break;
+        }
+        
+        printf("\n");
+    
+        
+    } while (opcao != 0);
+
+    return 0;
+}
+
+int menu() {
+    int opcao;
+    printf("1 - Somar\n");
+    printf("2 - Subtrair\n");
+    printf("3 - Dividir\n");
+    printf("4 - Multiplicar\n");
+    printf("5 - Média\n");
+    printf("0 - Sair\n");
+    printf("Informe a operação:\n");
+    scanf("%d", &opcao);
+    return opcao;
+}
+
+int somar(int v1, int v2) {
+    return v1 + v2;
+}
+
+void somar_sem_retorno(int v1, int v2) {
+    printf("RESULTADO = %d\n", v1 + v2);
+}
+
+int subtrair(int v1, int v2) {
+    return v1 - v2;
+}
+
+float dividir(int v1, int v2) {
+    if (v2 == 0) {
+        return 0.0;
+    }
+    return (float)v1 / v2;
+}
+
+int multiplicar(int v1, int v2) {
+    return v1 * v2;
+}
+
+void multiplicar_sem_retorno(int v1, int v2) {
+    printf("RESULTADO = %d\n", v1 * v2);
+}
+
+void media(int v1, int v2) {
+    printf("MEDIA = %.2f\n", (v1 + v2) / 2.0);
+}
