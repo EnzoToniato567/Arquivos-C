@@ -23,7 +23,7 @@ void listar_veiculos();
 void buscar_id();
 void filtrar_combustivel();
 void finaliza_funcao();
-void mostrar_menu_combustivel();
+void menu_combustivel();
 
 int main() {
     
@@ -175,7 +175,7 @@ void filtrar_combustivel() {
     int tipo;
     int achado = 0;
 
-    mostrar_menu_combustivel();
+    menu_combustivel();
     printf("Digite o número do combustível:\n");
     scanf("%d", &tipo);
 
