@@ -157,9 +157,9 @@ void buscar_id() {
     for (int i = 0; i < total; i++) {
         if (veiculos[i].id == id) {
             
-            printf("ID: %d\n", veiculos[i].id);
-            achado = 1;
-            break;
+        printf("ID: %d\n", veiculos[i].id);
+        achado = 1;
+        break;
         }
     }
 
