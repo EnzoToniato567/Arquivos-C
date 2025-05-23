@@ -65,7 +65,7 @@ int main() {
     return 0;
 }
 
-void clear() {
+void clear() { //Essa parte eu procurei buscar mais alguma coisa que deixaria mais facilitado o código
     if (system("clear")) system("cls");
 }
 
