@@ -1,0 +1,192 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+typedef struct {
+    char atividade[50];
+    int dia;
+    char mes[15];
+    float duracao;
+    int horario;
+    int status; 
+} Tarefa;
+
+Tarefa tarefas[20];
+int total = 0;
+
+void inserir_atividade();
+void buscar_atividade();
+void atividade_pendente();
+void concluir_atividade();
+void finaliza_funcao();
+
+int main () {
+    int opcao, idade;
+    char nome[30];
+
+    printf ("----Tela de login----\n");
+    printf ("Insira seu nome:\n");
+    scanf ("%s", nome);
+
+    printf ("Insira sua idade:\n");
+    scanf ("%d", &idade);
+
+    do {
+        printf ("----Bem vindo ao menu do aplicativo!----\n");
+        printf ("1 - Inserir atividades\n");
+        printf ("2 - Buscar atividades\n");
+        printf ("3 - Ver atividades pendentes\n");
+        printf ("4 - Concluir atividades\n");
+        printf ("5 - Sair do aplicativo\n");
+        printf ("Escolha uma opção:\n");
+        scanf ("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                inserir_atividade();
+                break;
+            case 2:
+                buscar_atividade();
+                break;
+            case 3:
+                atividade_pendente();
+                break;
+            case 4:
+                concluir_atividade();
+                break;
+            case 5:
+                printf("Você escolheu sair do aplicativo.\n");
+                break;
+            default:
+                printf("Opção inválida.\n");
+        }
+    } while (opcao != 0);
+
+    return 0;
+}
+
+void finaliza_funcao() {
+    printf("Pressione ENTER para continuar...\n");
+    getchar();
+    getchar();
+}
+
+void inserir_atividade() {
+    if (total >=20) {
+        printf ("Número de atividades esgotadas.\n");
+        finaliza_funcao();
+        return;
+    }
+
+    printf ("----Nova atividade----\n");
+    
+    printf ("Atividade:\n");
+    scanf ("%s", tarefas[total].atividade);
+
+    printf ("Dia:\n");
+    scanf ("%d", &tarefas[total].dia);
+
+    printf ("Mês:\n");
+    scanf ("%s", tarefas[total].mes);
+
+    printf ("Duração:\n");
+    scanf ("%f", &tarefas[total].duracao);
+    
+    printf ("Horario:\n");
+    scanf ("%d", &tarefas[total].horario);
+    
+    tarefas[total].status = 0; 
+    total++;
+    printf ("A nova atividade foi implementada\n");
+    finaliza_funcao();
+}
+
+void buscar_atividade() {
+    printf ("----Minhas atividades----\n");
+    if (total == 0) {
+        printf("Nenhuma tarefa foi adicionada.\n");
+        finaliza_funcao();
+        return;
+    }
+
+    for (int i = 0; i < total; i++) {
+        
+        printf ("Atividade:\n");
+        scanf ("%s", tarefas[total].atividade);
+
+        printf ("Dia:\n");
+        scanf ("%d", &tarefas[total].dia);
+
+        printf ("Mês:\n");
+        scanf ("%s", tarefas[total].mes);
+
+        printf ("Duração:\n");
+        scanf ("%f", &tarefas[total].duracao);
+        
+        printf ("Horario:\n");
+        scanf ("%d", &tarefas[total].horario);
+        
+        if (tarefas[i].status == 0) {
+            printf("Status: Pendente\n");
+       } else {
+            printf("Status: Concluída\n");
+            finaliza_funcao();
+       }
+        
+    }
+}
+
+void atividade_pendente() {
+  
+    printf("----Atividades Pendentes----\n");
+    if (total == 0) {
+        printf("Nenhuma atividade foi registrada ainda.\n");
+        finaliza_funcao();
+        return;
+    }
+
+    int encontrada = 0;
+    for (int i = 0; i < total; i++) {
+        if (tarefas[i].status == 0) {
+        
+        printf ("Atividade:\n");
+        scanf ("%s", tarefas[total].atividade);
+
+        printf ("Dia:\n");
+        scanf ("%d", &tarefas[total].dia);
+
+        printf ("Mês:\n");
+        scanf ("%s", tarefas[total].mes);
+
+        printf ("Duração:\n");
+        scanf ("%f", &tarefas[total].duracao);
+        
+        printf ("Horario:\n");
+        scanf ("%d", &tarefas[total].horario);
+        
+        encontrada = 1;
+        }
+    }
+    if (encontrada == 0) {
+        printf("Nenhuma atividade pendente.\n");
+    }
+    finaliza_funcao();
+}
+
+void concluir_atividade() {
+    
+    int i;
+    
+    printf("Informe o número da atividade para concluir:\n");
+    scanf("%d", &i);
+
+    if (i >= 0 && i < total && tarefas[i].status == 0) {
+        tarefas[i].status = 1;
+        printf("Atividade concluída com sucesso!\n");
+    } else {
+        printf("Atividade já concluída ou número inválido.\n");
+    }
+    finaliza_funcao();
+}
