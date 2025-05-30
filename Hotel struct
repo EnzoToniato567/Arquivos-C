@@ -1,0 +1,195 @@
+//biblioteca
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdlib.h>
+
+typedef struct {
+    char nome[30];
+    int idade;
+    int numero_quarto;
+    float pagamento;
+} Hotel;
+
+Hotel planos[20];
+int total = 0;
+
+void fazer_checkin();
+void planos_de_quarto();
+void fazer_pedido();
+void finaliza_funcao();
+
+int main() {
+    
+    int opcao;
+
+    do {
+        printf("Bem-vindo ao nosso sistema:\n");
+        printf("Escolha uma das opções seguintes:\n");
+        printf("1 - Fazer check-in\n");
+        printf("2 - Ver planos de quarto\n");
+        printf("3 - Fazer um pedido\n");
+        printf("0 - Sair\n");
+        printf("Digite o número da opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                fazer_checkin();
+                break;
+            case 2:
+                planos_de_quarto();
+                break;
+            case 3:
+                fazer_pedido();
+                break;
+            case 0:
+                printf("Você saiu do sistema.\n");
+                break;
+            default:
+                printf("Opção inválida.\n");
+            break;
+        }
+    } while (opcao != 0);
+
+    return 0;
+}
+
+void finaliza_funcao() {
+    printf("Pressione ENTER para continuar...\n");
+    getchar(); 
+    getchar();
+}
+
+void fazer_checkin() {
+    
+    float pagamento;
+    float troco = 0;
+
+    if (total >= 20) {
+        printf("Não há vaga para mias hóspedes.\n");
+        finaliza_funcao();
+        return;
+    }
+
+    printf("\n----Check-in----\n");
+    
+    printf("Número do quarto: \n");
+    scanf("%d", &planos[total].numero_quarto);
+
+    printf("Nome: \n");
+    scanf("%s", planos[total].nome);
+
+    printf("Pagamento: R$\n");
+    scanf("%f", &pagamento);
+
+    if (pagamento < 200.00) {
+        printf("Valor insuficiente.\n");
+        finaliza_funcao();
+        return;
+    } else {
+        troco = pagamento - 200.00;
+        planos[total].pagamento = pagamento;
+        printf("Pagamento concluído! Seu troco é de: R$%.2f\n", troco);
+    }
+    
+    printf("Idade:\n");
+    scanf("%d", &planos[total].idade);
+    total++;
+
+    finaliza_funcao();
+}
+
+void planos_de_quarto() {
+    
+    int opcao;
+    
+    printf("\n----Opções de quarto----\n");
+
+    do {
+        printf("1 - Quarto econômico\n");
+        printf("2 - Quarto extremamente confortável\n");
+        printf("3 - Suíte\n");
+        printf("0 - Nenhuma das opções\n");
+        printf("Escolha uma das opções: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Você escolheu quarto econômico.\n");
+                finaliza_funcao();
+                return;
+            case 2:
+                printf("Você escolheu quarto extremamente confortável.\n");
+                finaliza_funcao();
+                return;
+            case 3:
+                printf("Você escolheu suíte.\n");
+                finaliza_funcao();
+                return;
+            case 0:
+                printf("Você não escolheu nenhuma opção.\n");
+                break;
+            default:
+                printf("Opção inválida.\n");
+                break;
+        }
+    } while (opcao != 0);   
+
+    finaliza_funcao();
+    return;
+}
+
+void fazer_pedido() {
+    
+    int opcao, bebida;
+    printf("----Menu de pedidos----\n");
+
+    do {
+        printf("1 - Cardápio do nosso restaurante\n");
+        printf("2 - Atendimento urgente\n");
+        printf("3 - Bebidas (água, refrigerante, suco, etc.)\n");
+        printf("0 - Nenhuma das opções\n");
+        printf("Escolha uma das opções: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Você escolheu cardápio do nosso restaurante.\n");
+                break;
+            case 2:
+                printf("Você escolheu atendimento urgente.\n");
+                break;
+            case 3:
+                printf("Escolha qual bebida deseja pedir:\n");
+                printf("1 - Café\n");
+                printf("2 - Água natural\n");
+                printf("3 - Água com gás\n");
+                printf("4 - Chá\n");
+                printf("5 - Refrigerante\n");
+                scanf("%d", &bebida);
+                switch (bebida) {
+                    case 1: 
+                    printf("Você escolheu café.\n"); break;
+                    case 2: 
+                    printf("Você escolheu água natural.\n"); break;
+                    case 3: 
+                    printf("Você escolheu água com gás.\n"); break;
+                    case 4: 
+                    printf("Você escolheu chá.\n"); break;
+                    case 5: 
+                    printf("Você escolheu refrigerante.\n"); break;
+                    default: 
+                    printf("Opção inválida.\n"); break;
+                }
+                break;
+            case 0:
+                printf("Você não escolheu nenhuma opção.\n");
+                break;
+            default:
+                printf("Opção inválida.\n");
+        }
+    } while (opcao != 0);
+
+    finaliza_funcao();
+}
