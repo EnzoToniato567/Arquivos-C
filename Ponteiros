@@ -1,0 +1,50 @@
+//biblioteca
+
+#include <stdio.h>
+#include <locale.h>
+
+typedef struct {
+    int valor;
+} Compra;
+
+void muda_valor(int *a, int *b);
+void set_valor(Compra *compra);
+void imprimir_faturamento(Compra compra);
+
+int main() {
+    
+    int a = 10, b = 20;
+
+    printf("A = %d\n", a);
+    printf("B = %d\n", b);
+
+    muda_valor(&a, &b);
+
+    printf("A = %d\n", a);
+    printf("B = %d\n", b);
+
+    Compra compra;
+    compra.valor = 30;
+
+    set_valor(&compra);
+
+    imprimir_faturamento(compra);
+
+    return 0;
+}
+
+void muda_valor(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void set_valor(Compra *compra) {
+    printf("Insira um valor:\n");
+    scanf("%d", &compra->valor);
+}
+
+void imprimir_faturamento(Compra compra) {
+    printf("----Faturamento----\n");
+    printf("R$ = %d\n", compra.valor);
+}
